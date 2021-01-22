@@ -13,7 +13,7 @@ var oikakekkoButton;
 var retroButton;
 var sanjiButton;
 var time;
-var now;
+var TimeOut;
 function start(){
     CatLifeButton = document.getElementById("CatLife");
     CatLifeButton.style.display = "none";
@@ -47,6 +47,15 @@ function pressed(){
             document.getElementById("title").innerText = "次の" + Math.floor(time / 100) + "時" + (time - (Math.floor(time / 100) * 100)) + "分にアラームをセットしました。\nアラームの音を設定して下さい。";
         }
         setMusic();
+        var now = new Date();
+        var less_or_more;
+        if(Math.floor(time / 100) >= now.getHours() && time - Math.floor(time / 100) * 100 > now.getMinutes()){
+            less_or_more = 0;
+        }
+        else{
+            less_or_more = -86400;
+        }
+        setTimeout(TimeOut, Math.abs(less_or_more - (Math.floor(time / 100) - now.getHours()) * 3600 + (time - Math.floor(time / 100) * 100 - now.getMinutes() - 1) * 60 + 60 - now.getSeconds()) * 1000);
     }
     else{
         document.getElementById("title").innerText = "エラーが発生しました。";
@@ -65,19 +74,52 @@ function setMusic(){
 }
 function CatLifePlay(){
     CatLife.play();
+    fami.pause();
+    fruit.pause();
+    oikakekko.pause();
+    retro.pause();
+    sanji.pause();
 }
 function famiPlay(){
     fami.play();
+    CatLife.pause();
+    fruit.pause();
+    oikakekko.pause();
+    retro.pause();
+    sanji.pause();
 }
 function fruitPlay(){
     fruit.play();
+    CatLife.pause();
+    fami.pause();
+    oikakekko.pause();
+    retro.pause();
+    sanji.pause();
 }
 function oikakekkoPlay(){
     oikakekko.play();
+    CatLife.pause();
+    fami.pause();
+    fruit.pause();
+    retro.pause();
+    sanji.pause();
 }
 function retroPlay(){
     retro.play();
+    CatLife.pause();
+    fami.pause();
+    fruit.pause();
+    oikakekko.pause();
+    sanji.pause();
 }
 function sanjiPlay(){
     sanji.play();
+    CatLife.pause();
+    fami.pause();
+    fruit.pause();
+    oikakekko.pause();
+    retro.pause();
+}
+TimeOut = function(){
+    CatLifePlay();
 }
