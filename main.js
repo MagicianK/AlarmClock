@@ -81,7 +81,6 @@ function setMusic(){
     oikakekkoButton.style.display = "block";
     retroButton.style.display = "block";
     sanjiButton.style.display = "block";
-    ok.style.display = "block";
 }
 function CatLifePlay(){
     CatLife.play();
@@ -91,6 +90,7 @@ function CatLifePlay(){
     retro.pause();
     sanji.pause();
     music = CatLife;
+    ok.style.display = "block";
 }
 function famiPlay(){
     fami.play();
@@ -100,6 +100,7 @@ function famiPlay(){
     retro.pause();
     sanji.pause();
     music = fami;
+    ok.style.display = "block";
 }
 function fruitPlay(){
     fruit.play();
@@ -109,6 +110,7 @@ function fruitPlay(){
     retro.pause();
     sanji.pause();
     music = fruit;
+    ok.style.display = "block";
 }
 function oikakekkoPlay(){
     oikakekko.play();
@@ -118,6 +120,7 @@ function oikakekkoPlay(){
     retro.pause();
     sanji.pause();
     music = oikakekko;
+    ok.style.display = "block";
 }
 function retroPlay(){
     retro.play();
@@ -127,6 +130,7 @@ function retroPlay(){
     oikakekko.pause();
     sanji.pause();
     music = retro;
+    ok.style.display = "block";
 }
 function sanjiPlay(){
     sanji.play();
@@ -136,6 +140,7 @@ function sanjiPlay(){
     oikakekko.pause();
     retro.pause();
     music = sanji;
+    ok.style.display = "block";
 }
 function okay(){
     CatLife.pause();
@@ -157,4 +162,5 @@ TimeOut = function(){
     music.play();
     CatLife.pause();
     CatLife.volume = 1;
+    window.navigator.vibrate(100, 100, 100);
 }
