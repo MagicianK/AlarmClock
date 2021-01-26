@@ -48,14 +48,8 @@ function pressed(){
     else{
         time = parseInt(timeString);
     }
-    console.log(time);
     if(0 <= time && time < 2360 && time == Math.round(time) && time - Math.floor(time / 100) * 100 < 60){
-        if(time - (Math.floor(time / 100) * 100) < 10){
-            document.getElementById("title").innerText ="次の" + Math.floor(time / 100) + "時" + "0" + (time - (Math.floor(time / 100) * 100)) + "分にアラームをセットしました。\nアラームの音を設定して下さい。";
-        }
-        else{
-            document.getElementById("title").innerText = "次の" + Math.floor(time / 100) + "時" + (time - (Math.floor(time / 100) * 100)) + "分にアラームをセットしました。\nアラームの音を設定して下さい。";
-        }
+        document.getElementById("title").innerText ="アラームの音を設定して下さい。";
         setMusic();
         var now = new Date();
         var less_or_more;
@@ -156,10 +150,24 @@ function okay(){
     sanji.currentTime = 0;
     CatLife.play();
     CatLife.volume = 0.000001;
+    CatLifeButton.remove();
+    famiButton.remove();
+    fruitButton.remove();
+    oikakekkoButton.remove();
+    retroButton.remove();
+    sanjiButton.remove();
+    ok.remove();
+    if(time - (Math.floor(time / 100) * 100) < 10){
+        document.getElementById("title").innerText ="次の" + Math.floor(time / 100) + "時" + "0" + (time - (Math.floor(time / 100) * 100)) + "分にアラームをセットしました。";
+    }
+    else{
+        document.getElementById("title").innerText = "次の" + Math.floor(time / 100) + "時" + (time - (Math.floor(time / 100) * 100)) + "分にアラームをセットしました。";
+    }
 }
 TimeOut = function(){
     music.currentTime = 0;
     music.play();
     CatLife.pause();
     CatLife.volume = 1;
+    window.navigator.vibrate(100);
 }

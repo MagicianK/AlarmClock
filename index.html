@@ -10,14 +10,20 @@
     <script src="main.js"></script>
 </head>
 <body onload="start()">
-    <h1 id="title"></h1>
-    <button id="div1" onclick="pressed()"></button>
-    <button id="CatLife" onclick="CatLifePlay()">CatLife</button>
-    <button id="fami" onclick="famiPlay()">ファミポップⅲ</button>
-    <button id="fruit" onclick="fruitPlay()">フルーツパフェ</button>
-    <button id="oikakekko" onclick="oikakekkoPlay()">追いかけっこキャッハー</button>
-    <button id="retro" onclick="retroPlay()">レトロゲームセンター</button>
-    <button id="sanji" onclick="sanjiPlay()">3時のおやつ</button>
-    <button id="ok" class="ok" onclick="okay()">決定</button>
+    <h1 id="title" class="text"></h1>
+    <p class="text">
+        <button id="div1" class="button" onclick="pressed()"></button>
+    </p>
+    <p class="audio">
+        <button id="CatLife" class="button" onclick="CatLifePlay()">CatLife</button>
+        <button id="fami" class="button" onclick="famiPlay()">ファミポップⅲ</button>
+        <button id="fruit" class="button" onclick="fruitPlay()">フルーツパフェ</button>
+        <button id="oikakekko" class="button" onclick="oikakekkoPlay()">追いかけっこキャッハー</button>
+        <button id="retro" class="button" onclick="retroPlay()">レトロゲームセンター</button>
+        <button id="sanji" class="button" onclick="sanjiPlay()">3時のおやつ</button>
+    </p>
+    <p class="selected">
+        <button id="ok" class="ok" onclick="okay()">決定</button>
+    </p>
 </body>
 </html>
