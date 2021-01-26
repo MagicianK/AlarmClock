@@ -162,5 +162,4 @@ TimeOut = function(){
     music.play();
     CatLife.pause();
     CatLife.volume = 1;
-    window.navigator.vibrate(100, 100, 100);
 }
