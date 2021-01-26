@@ -150,11 +150,11 @@ function okay(){
     retro.currentTime = 0;
     sanji.currentTime = 0;
     CatLife.play();
-    CatLife.volume = 0;
+    CatLife.volume = 0.1;
 }
 TimeOut = function(){
-    CatLife.pause();
-    CatLife.volume = 1;
     music.currentTime = 0;
     music.play();
+    CatLife.pause();
+    CatLife.volume = 1;
 }
