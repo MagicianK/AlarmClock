@@ -12,9 +12,17 @@ var fruitButton;
 var oikakekkoButton;
 var retroButton;
 var sanjiButton;
+var ok;
 var time;
 var TimeOut;
+var music;
 function start(){
+    CatLife.loop = true;
+    fami.loop = true;
+    fruit.loop = true;
+    oikakekko.loop = true;
+    retro.loop = true;
+    sanji.loop = true;
     CatLifeButton = document.getElementById("CatLife");
     CatLifeButton.style.display = "none";
     famiButton = document.getElementById("fami");
@@ -27,6 +35,8 @@ function start(){
     retroButton.style.display = "none";
     sanjiButton = document.getElementById("sanji");
     sanjiButton.style.display = "none";
+    ok = document.getElementById("ok");
+    ok.style.display = "none";
     button = document.getElementById("div1");
     button.innerText = "ここを押して時間を設定して下さい。";
 }
@@ -71,6 +81,7 @@ function setMusic(){
     oikakekkoButton.style.display = "block";
     retroButton.style.display = "block";
     sanjiButton.style.display = "block";
+    ok.style.display = "block";
 }
 function CatLifePlay(){
     CatLife.play();
@@ -79,6 +90,7 @@ function CatLifePlay(){
     oikakekko.pause();
     retro.pause();
     sanji.pause();
+    music = CatLife;
 }
 function famiPlay(){
     fami.play();
@@ -87,6 +99,7 @@ function famiPlay(){
     oikakekko.pause();
     retro.pause();
     sanji.pause();
+    music = fami;
 }
 function fruitPlay(){
     fruit.play();
@@ -95,6 +108,7 @@ function fruitPlay(){
     oikakekko.pause();
     retro.pause();
     sanji.pause();
+    music = fruit;
 }
 function oikakekkoPlay(){
     oikakekko.play();
@@ -103,6 +117,7 @@ function oikakekkoPlay(){
     fruit.pause();
     retro.pause();
     sanji.pause();
+    music = oikakekko;
 }
 function retroPlay(){
     retro.play();
@@ -111,6 +126,7 @@ function retroPlay(){
     fruit.pause();
     oikakekko.pause();
     sanji.pause();
+    music = retro;
 }
 function sanjiPlay(){
     sanji.play();
@@ -119,7 +135,26 @@ function sanjiPlay(){
     fruit.pause();
     oikakekko.pause();
     retro.pause();
+    music = sanji;
+}
+function okay(){
+    CatLife.pause();
+    fami.pause();
+    fruit.pause();
+    oikakekko.pause();
+    retro.pause();
+    sanji.pause();
+    fami.currentTime = 0;
+    fruit.currentTime = 0;
+    oikakekko.currentTime = 0;
+    retro.currentTime = 0;
+    sanji.currentTime = 0;
+    CatLife.play();
+    CatLife.muted = true;
 }
 TimeOut = function(){
-    CatLifePlay();
+    CatLife.pause();
+    CatLife.muted = false;
+    music.currentTime = 0;
+    music.play();
 }
