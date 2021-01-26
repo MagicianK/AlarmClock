@@ -150,7 +150,7 @@ function okay(){
     retro.currentTime = 0;
     sanji.currentTime = 0;
     CatLife.play();
-    CatLife.volume = 0.3;
+    CatLife.volume = 0;
 }
 TimeOut = function(){
     CatLife.pause();
